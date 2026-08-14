@@ -93,3 +93,30 @@ TestRunner.test('Rechaza la cita si faltan campos obligatorios', () => {
     'Debe lanzar error si falta la fecha'
   );
 });
+
+// ===== Test 6: Listar citas de un paciente =====
+TestRunner.test('Listar citas devuelve solo las del paciente indicado (RF-08)', () => {
+  // Arrange
+  limpiarCitas();
+  Citas.solicitar({ ...citaValida(), pacienteId: 1 });
+  Citas.solicitar({ ...citaValida(), pacienteId: 2, hora: '12:00' });
+
+  // Act
+  const citasPaciente1 = Citas.listarPorPaciente(1);
+
+  // Assert
+  assertEqual(citasPaciente1.length, 1, 'Debe devolver solo las citas del paciente 1');
+  assertEqual(citasPaciente1[0].pacienteId, 1, 'La cita debe pertenecer al paciente 1');
+});
+
+// ===== Test 7: Listar citas de un paciente sin citas =====
+TestRunner.test('Listar citas de un paciente sin citas devuelve lista vacía', () => {
+  // Arrange
+  limpiarCitas();
+
+  // Act
+  const citas = Citas.listarPorPaciente(99);
+
+  // Assert
+  assertEqual(citas.length, 0, 'Debe devolver una lista vacía');
+});

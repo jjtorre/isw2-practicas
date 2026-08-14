@@ -24,6 +24,16 @@ const Citas = {
     return cita;
   },
 
+  /**
+   * Lista las citas de un paciente.
+   * @param {number} pacienteId
+   * @returns {Array} Las citas del paciente.
+   */
+  listarPorPaciente(pacienteId) {
+    // TODO: implementar (fase GREEN)
+    throw new Error('No implementado');
+  },
+
   /** Valida que los campos obligatorios estén presentes. */
   _validarDatos(datos) {
     if (!datos.pacienteId || !datos.medicoId || !datos.fecha || !datos.hora) {
