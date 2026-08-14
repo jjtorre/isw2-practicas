@@ -47,6 +47,16 @@ const Auth = {
     return usuario;
   },
 
+  /**
+   * Recupera la contraseña de un usuario por su correo.
+   * @param {string} correo
+   * @returns {string} La contraseña del usuario.
+   */
+  recuperarPassword(correo) {
+    // TODO: implementar (fase GREEN)
+    throw new Error('No implementado');
+  },
+
   /** Valida que los campos obligatorios estén presentes y el correo sea válido. */
   _validarDatos(datos) {
     if (!datos.nombre || !datos.correo || !datos.telefono || !datos.password) {
