@@ -30,6 +30,11 @@ const Citas = {
    * @returns {Array} Las citas del paciente.
    */
   listarPorPaciente(pacienteId) {
+    return this._buscarPorPaciente(pacienteId);
+  },
+
+  /** Filtra las citas que pertenecen a un paciente. */
+  _buscarPorPaciente(pacienteId) {
     const citas = this._obtenerCitas();
     return citas.filter((c) => c.pacienteId === pacienteId);
   },
