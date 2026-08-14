@@ -40,7 +40,7 @@ const Citas = {
    */
   cancelar(id) {
     const citas = this._obtenerCitas();
-    const cita = citas.find((c) => c.id === id);
+    const cita = this._buscarPorId(citas, id);
 
     if (!cita) {
       throw new Error('La cita no existe');
@@ -50,6 +50,11 @@ const Citas = {
     this._guardarCitas(citas);
 
     return cita;
+  },
+
+  /** Busca una cita por su id dentro de una lista. */
+  _buscarPorId(citas, id) {
+    return citas.find((c) => c.id === id);
   },
 
   /** Filtra las citas que pertenecen a un paciente. */
