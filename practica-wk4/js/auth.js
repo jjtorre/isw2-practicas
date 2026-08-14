@@ -53,8 +53,16 @@ const Auth = {
    * @returns {string} La contraseña del usuario.
    */
   recuperarPassword(correo) {
-    // TODO: implementar (fase GREEN)
-    throw new Error('No implementado');
+    if (!correo) {
+      throw new Error('El correo es obligatorio');
+    }
+
+    const usuario = this._buscarPorCorreo(correo);
+    if (!usuario) {
+      throw new Error('No existe un usuario con ese correo');
+    }
+
+    return usuario.password;
   },
 
   /** Valida que los campos obligatorios estén presentes y el correo sea válido. */
