@@ -35,8 +35,7 @@ const Auth = {
       throw new Error('Correo y contraseña son obligatorios');
     }
 
-    const usuarios = this._obtenerUsuarios();
-    const usuario = usuarios.find((u) => u.correo === correo);
+    const usuario = this._buscarPorCorreo(correo);
 
     if (!usuario) {
       throw new Error('No existe un usuario con ese correo');
@@ -60,10 +59,15 @@ const Auth = {
 
   /** Comprueba si el correo ya está registrado. */
   _comprobarCorreoDuplicado(usuarios, correo) {
-    const duplicado = usuarios.find((u) => u.correo === correo);
-    if (duplicado) {
+    if (this._buscarPorCorreo(correo)) {
       throw new Error('Ya existe un usuario con ese correo');
     }
+  },
+
+  /** Busca un usuario por su correo electrónico. */
+  _buscarPorCorreo(correo) {
+    const usuarios = this._obtenerUsuarios();
+    return usuarios.find((u) => u.correo === correo);
   },
 
   /** Crea el objeto usuario a partir de los datos del formulario. */
