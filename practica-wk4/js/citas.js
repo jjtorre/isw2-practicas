@@ -33,6 +33,16 @@ const Citas = {
     return this._buscarPorPaciente(pacienteId);
   },
 
+  /**
+   * Cancela una cita existente.
+   * @param {number} id - Identificador de la cita.
+   * @returns {Object} La cita cancelada.
+   */
+  cancelar(id) {
+    // TODO: implementar (fase GREEN)
+    throw new Error('No implementado');
+  },
+
   /** Filtra las citas que pertenecen a un paciente. */
   _buscarPorPaciente(pacienteId) {
     const citas = this._obtenerCitas();

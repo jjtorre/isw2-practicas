@@ -120,3 +120,30 @@ TestRunner.test('Listar citas de un paciente sin citas devuelve lista vacía', (
   // Assert
   assertEqual(citas.length, 0, 'Debe devolver una lista vacía');
 });
+
+// ===== Test 8: Cancelar una cita existente =====
+TestRunner.test('Cancelar una cita existente cambia su estado a cancelada (RF-09)', () => {
+  // Arrange
+  limpiarCitas();
+  const cita = Citas.solicitar(citaValida());
+
+  // Act
+  const resultado = Citas.cancelar(cita.id);
+
+  // Assert
+  assertEqual(resultado.estado, 'cancelada', 'El estado debe ser cancelada');
+  const citas = Citas.listarPorPaciente(1);
+  assertEqual(citas[0].estado, 'cancelada', 'La cita guardada debe estar cancelada');
+});
+
+// ===== Test 9: Cancelar una cita inexistente lanza error =====
+TestRunner.test('Cancelar una cita inexistente lanza error', () => {
+  // Arrange
+  limpiarCitas();
+
+  // Act & Assert
+  assertThrows(
+    () => Citas.cancelar(9999),
+    'Debe lanzar error por cita inexistente'
+  );
+});
