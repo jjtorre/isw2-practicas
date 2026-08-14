@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro — Gestor de Citas Médicas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Gestor de Citas Médicas</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro.html">Registro</a>
+      <a href="test.html">Tests</a>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="form-card">
+      <h2>Registro de Paciente</h2>
+      <form id="form-registro">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" required>
+        </div>
+        <button type="submit" class="btn">Registrarse</button>
+        <div id="mensaje" class="msg"></div>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById('form-registro').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const mensaje = document.getElementById('mensaje');
+      const datos = {
+        nombre: document.getElementById('nombre').value.trim(),
+        correo: document.getElementById('correo').value.trim(),
+        telefono: document.getElementById('telefono').value.trim(),
+        password: document.getElementById('password').value,
+      };
+      try {
+        Auth.registrar(datos);
+        mensaje.className = 'msg success';
+        mensaje.textContent = 'Registro exitoso. ¡Bienvenido!';
+        this.reset();
+      } catch (err) {
+        mensaje.className = 'msg error';
+        mensaje.textContent = err.message;
+      }
+    });
+  </script>
+</body>
+</html>

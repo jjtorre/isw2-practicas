@@ -1,0 +1,141 @@
+/* ===== Reset y base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f9;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* ===== Header ===== */
+.app-header {
+  background: #1f6feb;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+}
+
+.app-header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.app-header nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Contenedor ===== */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ===== Formularios ===== */
+.form-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 480px;
+  margin: 2rem auto;
+}
+
+.form-card h2 {
+  margin-bottom: 1rem;
+  color: #1f6feb;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn {
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #1857b6;
+}
+
+/* ===== Mensajes ===== */
+.msg {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  border-radius: 4px;
+  display: none;
+}
+
+.msg.success {
+  background: #d4edda;
+  color: #155724;
+  display: block;
+}
+
+.msg.error {
+  background: #f8d7da;
+  color: #721c24;
+  display: block;
+}
+
+/* ===== Resultados de tests ===== */
+.test-summary {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 700px;
+}
+
+.test-summary h2 {
+  margin-bottom: 1rem;
+}
+
+.test-result {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.test-result.pass {
+  color: #155724;
+}
+
+.test-result.fail {
+  color: #721c24;
+  font-weight: 600;
+}
