@@ -30,8 +30,8 @@ const Citas = {
    * @returns {Array} Las citas del paciente.
    */
   listarPorPaciente(pacienteId) {
-    // TODO: implementar (fase GREEN)
-    throw new Error('No implementado');
+    const citas = this._obtenerCitas();
+    return citas.filter((c) => c.pacienteId === pacienteId);
   },
 
   /** Valida que los campos obligatorios estén presentes. */
