@@ -24,6 +24,17 @@ const Auth = {
     return usuario;
   },
 
+  /**
+   * Inicia sesión con correo y contraseña.
+   * @param {string} correo
+   * @param {string} password
+   * @returns {Object} El usuario autenticado.
+   */
+  iniciarSesion(correo, password) {
+    // TODO: implementar (fase GREEN)
+    throw new Error('No implementado');
+  },
+
   /** Valida que los campos obligatorios estén presentes y el correo sea válido. */
   _validarDatos(datos) {
     if (!datos.nombre || !datos.correo || !datos.telefono || !datos.password) {
