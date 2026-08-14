@@ -31,8 +31,21 @@ const Auth = {
    * @returns {Object} El usuario autenticado.
    */
   iniciarSesion(correo, password) {
-    // TODO: implementar (fase GREEN)
-    throw new Error('No implementado');
+    if (!correo || !password) {
+      throw new Error('Correo y contraseña son obligatorios');
+    }
+
+    const usuarios = this._obtenerUsuarios();
+    const usuario = usuarios.find((u) => u.correo === correo);
+
+    if (!usuario) {
+      throw new Error('No existe un usuario con ese correo');
+    }
+    if (usuario.password !== password) {
+      throw new Error('Contraseña incorrecta');
+    }
+
+    return usuario;
   },
 
   /** Valida que los campos obligatorios estén presentes y el correo sea válido. */
