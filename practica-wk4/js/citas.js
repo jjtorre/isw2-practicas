@@ -39,8 +39,17 @@ const Citas = {
    * @returns {Object} La cita cancelada.
    */
   cancelar(id) {
-    // TODO: implementar (fase GREEN)
-    throw new Error('No implementado');
+    const citas = this._obtenerCitas();
+    const cita = citas.find((c) => c.id === id);
+
+    if (!cita) {
+      throw new Error('La cita no existe');
+    }
+
+    cita.estado = 'cancelada';
+    this._guardarCitas(citas);
+
+    return cita;
   },
 
   /** Filtra las citas que pertenecen a un paciente. */
